@@ -1,0 +1,48 @@
+*********************************
+*********************************
+CONFIG
+*********************************
+ npm install
+ npm i -g @vue/cli
+ export PATH=$PATH:/mnt/c/Windows/System32
+ vue ui
+ config.
+ ********************************
+*********************************
+VS code 
+*********************************
+Vetur: complement
+"eslint.validate": [
+        {
+            "language": "vue",
+            "autofix": true
+        },
+        {
+            "language": "javascript",
+            "autofix": true
+        }
+    ],
+en raiz crear jsconfig.json:
+{
+    "include": [
+        "./src/**/*"
+    ]
+}
+ESLint + prettier: complement
+
+.eslintrc.js:
+'plugin:prettier/recommend'
+.prettierrc.js:
+module.exports = {
+    singleQuote: true,
+    semi: false
+  };  
+user settings:
+"vetur.validation.template": false
+"eslint.autoFixOnSave": true,
+"editor.formatOnSave": true,
+Copy relative path: complement
+code snipets - sarah drasner: complement 
+vue devTools
+
+

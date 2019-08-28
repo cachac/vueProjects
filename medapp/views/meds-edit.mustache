@@ -1,0 +1,13 @@
+
+<html>
+  <head></head>
+  <body>            
+      <h1>This is the edit page</h1>
+      <form action="/meds/edit/{{ med.mid }}" method="POST">
+        <input type="text" name="name" value="{{med.name}}" placeholder="Name" />
+        <input type="text" name="count" value="{{med.count}}" placeholder="Count" />
+        <input type="text" name="brand" value="{{med.brand}}" placeholder="Brand" />
+        <button type="submit">Accept</button>
+      </form>
+  </body>
+</html>

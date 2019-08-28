@@ -1,0 +1,49 @@
+**************************************
+**************************************
+INIT
+**************************************
+crea directorio
+npm init
+npm install express --save
+**************************************
+**************************************
+SETUP SERVER
+**************************************
+- create server.js:
+const express = require('express');
+const app = express();
+
+app.listen(5001, ()=>{
+    console.log('listening to port 5001 - Express JS');
+})
+- crea folder publico
+- crea index.html
+- log: node my_app.js > my_app_log.log 2> my_app_err.log 
+- ver log4j - winston
+- view engine: mustache
+- pg complement
+**************************************
+**************************************
+SETUP ROUTER
+**************************************
+app.get('/add', (req, res) =>{
+    res.render('med-form');
+});
+**************************************
+**************************************
+FORM BODY PARSER
+**************************************
+sudo npm install body-parser
+
+app.post('/meds/add', (req, res) =>{
+    console.log('POST body', req.body);
+    res.redirect('/meds');
+});
+**************************************
+**************************************
+DB CONNECTION
+**************************************
+const { client } = require('pg');
+
+
+
