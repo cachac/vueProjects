@@ -44,5 +44,7 @@ user settings:
 Copy relative path: complement
 code snipets - sarah drasner: complement 
 vue devTools
+vue.config:
+configureWebpack: { devtool: 'source-map',
 
 
