@@ -10,4 +10,5 @@ module.exports = function(app) {
     .get(controller.READ_BY_ID)
     .put(controller.UPDATE)
     .delete(controller.DELETE);
+  app.route("/users/check/:username").get(controller.CHECK_USERNAME);
 };

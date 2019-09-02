@@ -30,6 +30,20 @@ exports.CREATE = function(req, res) {
     });
 };
 
+exports.CHECK_USERNAME = function(req, res) {
+  model.checkUsername(req.params.username, function(err, isUnique) {
+    if (err) res.status(500).send(err);
+    else {
+    //   console.log("express isUnique: ", isUnique);
+    //   let results = JSON.parse(JSON.stringify(isUnique));
+    //   console.log("express isUnique2: ", results);
+      if (isUnique == 0) res.send({ isUnique: true });
+      else res.send({ isUnique: false });
+      //res.send(isUnique);
+    }
+  });
+};
+
 exports.UPDATE = function(req, res) {
   const _obj = new model(req.body);
   // validaciones

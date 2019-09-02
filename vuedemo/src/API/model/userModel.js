@@ -14,7 +14,7 @@ const User = function(user) {
 
 User.readAll = function(result) {
   mysqlConnection.query(
-    "select * from control_acceso_cdc_dbp.usuario_n limit 10;",
+    "select * from control_acceso_cdc_dbp.usuario_n order by fechaCreacion desc limit 10;",
     function(err, res) {
       if (err) {
         console.log("error: ", err);
@@ -52,6 +52,21 @@ User.create = function(_new, result) {
       result(null, _new);
     }
   });
+};
+
+User.checkUsername = function(username, result) {
+  mysqlConnection.query(
+    "SELECT count(*) as resultado FROM usuario_n WHERE usuario = ?",
+    username,
+    function(err, res) {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+      } else {
+        result(null, res[0].resultado);
+      }
+    }
+  );
 };
 
 User.update = function(id, _obj, result) {
