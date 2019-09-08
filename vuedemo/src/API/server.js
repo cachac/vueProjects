@@ -12,8 +12,10 @@ require("dotenv").config();
 app.use(express.json());
 
 // routes
-const routes = require("./routes/userRoute");
-routes(app);
+const users = require("./routes/userRoute");
+const formulario = require("./routes/formularioRoute");
+users(app);
+formulario(app);
 
 app.use(require("./routes/bitacora"));
 
