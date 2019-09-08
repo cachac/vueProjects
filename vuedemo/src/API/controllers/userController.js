@@ -1,14 +1,17 @@
 const model = require("../model/userModel");
 
 exports.READ_ALL = function(req, res) {
+//   setTimeout(function() {
   model.readAll(function(err, model) {
     if (err) res.status(500).send(err);
     else res.send(model);
   });
+//   }, 10000);
 };
 
 exports.READ_BY_ID = function(req, res) {
-  model.readById(req.params.id, function(err, model) {
+  const _obj = new model(req.body);
+  model.readById(_obj.id, function(err, model) {
     if (err) res.status(500).send(err);
     else res.send(model);
   });
@@ -34,9 +37,9 @@ exports.CHECK_USERNAME = function(req, res) {
   model.checkUsername(req.params.username, function(err, isUnique) {
     if (err) res.status(500).send(err);
     else {
-    //   console.log("express isUnique: ", isUnique);
-    //   let results = JSON.parse(JSON.stringify(isUnique));
-    //   console.log("express isUnique2: ", results);
+      //   console.log("express isUnique: ", isUnique);
+      //   let results = JSON.parse(JSON.stringify(isUnique));
+      //   console.log("express isUnique2: ", results);
       if (isUnique == 0) res.send({ isUnique: true });
       else res.send({ isUnique: false });
       //res.send(isUnique);
