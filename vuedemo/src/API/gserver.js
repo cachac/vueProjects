@@ -1,9 +1,11 @@
-const express = require("express");
-const winston = require("winston");
+
+import express from "express";
+// const graphqlHTTP = require("express-graphql");
+// const { buildSchema } = require("graphql");
+import winston from "winston";
 const path = require("path");
 const app = express();
 require("dotenv").config();
-//const socketIO = require("socket.io");
 
 /* #region CORS */
 const cors = require("cors");
@@ -43,25 +45,23 @@ if (process.env.NODE_ENV !== "production") {
 
 /*#endregion*/
 
-/* #region REST */
-const users = require("./routes/userRoute");
-const formulario = require("./routes/formularioRoute");
-users(app);
-formulario(app);
+/* #region GraphQL */
+// const schema = require("./schema");
 
-app.use(require("./routes/bitacora"));
-/* #endregion */
+// app.use(
+//   "/graphql",
+//   graphqlHTTP({
+//     schema: schema,
+//     graphiql: true
+//   })
+// );
+
+/* #endregion*/
 
 // START
 app.listen(process.env.NODE_PORT, () => {
   logger.info(
-    `CORS-Enabled: Listening to port ${process.env.NODE_PORT} - Express JS | REST`
+    `CORS-Enabled: Listening to port ${process.env.NODE_PORT} - Express JS | GraphQL`
   );
   //
 });
-
-// sockets
-/*const io = socketIO.listen(server);
-io.on("connection", () => {
-  console.log("new conn!!");
-});*/

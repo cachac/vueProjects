@@ -1,0 +1,2 @@
+{"message":"CORS-Enabled: Listening to port 5050 - Express JS | REST","level":"info","service":"user-service"}
+{"message":"CORS-Enabled: Listening to port 5050 - Express JS | GraphQL","level":"info","service":"user-service"}
